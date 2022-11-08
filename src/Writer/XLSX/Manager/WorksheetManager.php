@@ -199,7 +199,7 @@ final class WorksheetManager implements WorksheetManagerInterface
         } elseif ($cell instanceof Cell\FormulaCell) {
             $cellXML .= '><f>'.substr($cell->getValue(), 1).'</f></c>';
         } elseif ($cell instanceof Cell\DateTimeCell) {
-            $cellXML .= '><v>'.DateHelper::toExcel($cell->getValue()).'</v></c>';
+            $cellXML .= ' t="d"><v>'.DateHelper::toExcel($cell->getValue()).'</v></c>';
         } elseif ($cell instanceof Cell\ErrorCell) {
             // only writes the error value if it's a string
             $cellXML .= ' t="e"><v>'.$cell->getRawValue().'</v></c>';
